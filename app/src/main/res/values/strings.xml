@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Givers</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="needy">Needy</string>
+    <string name="helper">Helper</string>
+    <string name="click_image_to_upload_picture">Click Image To Upload Picture</string>
+    <string name="write_description_here">Write Description Here.</string>
+    <string name="upload">Upload</string>
+</resources>
