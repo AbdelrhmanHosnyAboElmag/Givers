@@ -9,14 +9,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.givers.R
 import com.example.givers.databinding.FragmentAuthenticationHelperBinding
-import com.example.givers.databinding.FragmentSplashBinding
-import com.example.givers.ui.viewmodel.LoginViewModel
+import com.example.givers.ui.viewmodel.HelperViewModel
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
@@ -24,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth
 class AuthenticationHelper : Fragment() {
 
     private lateinit var binding: FragmentAuthenticationHelperBinding
-    private val viewModel by activityViewModels<LoginViewModel>()
+    private val viewModel by activityViewModels<HelperViewModel>()
 
     companion object {
         const val TAG = "AuthenticationHelper"
@@ -43,7 +41,7 @@ class AuthenticationHelper : Fragment() {
 
         viewModel.authenticationState.observe(requireActivity(), Observer { authenticationState ->
             when (authenticationState) {
-                LoginViewModel.AuthenticationState.AUTHENTICATED -> {
+                HelperViewModel.AuthenticationState.AUTHENTICATED -> {
                     binding.btSign.visibility=View.GONE
                     goToHelper()
                 }

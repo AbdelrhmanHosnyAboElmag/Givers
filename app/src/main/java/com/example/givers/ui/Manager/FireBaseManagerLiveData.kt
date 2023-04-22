@@ -1,4 +1,4 @@
-package com.example.givers.ui.source
+package com.example.givers.ui.Manager
 
 import androidx.lifecycle.LiveData
 import com.google.firebase.auth.FirebaseAuth
