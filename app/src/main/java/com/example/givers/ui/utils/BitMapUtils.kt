@@ -26,7 +26,7 @@ object BitmapUtils {
 
         var stream: ByteArrayOutputStream? = ByteArrayOutputStream()
         bmp = getResizedBitmap(bmp, 100)
-        bmp.compress(Bitmap.CompressFormat.JPEG, 1000, stream)
+        bmp.compress(Bitmap.CompressFormat.JPEG, 100, stream)
         val byteArray: ByteArray = stream?.toByteArray()!!
         try {
             stream?.close()
