@@ -1,9 +1,10 @@
 package com.example.givers.ui.fragments
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -17,9 +18,15 @@ import androidx.navigation.fragment.findNavController
 import com.example.givers.R
 import com.example.givers.databinding.FragmentHelperBinding
 import com.example.givers.ui.exts.observeEvent
+import com.example.givers.ui.utils.BitmapUtils
 import com.example.givers.ui.utils.Status
 import com.example.givers.ui.viewmodel.HelperViewModel
 import com.firebase.ui.auth.AuthUI
+import kotlinx.coroutines.runBlocking
+import java.io.ByteArrayOutputStream
+import java.io.FileNotFoundException
+import java.io.IOException
+import java.io.InputStream
 
 
 class Helper : Fragment() {
@@ -27,8 +34,9 @@ class Helper : Fragment() {
     private val viewModel by activityViewModels<HelperViewModel>()
     private val pic_id = 123
     private var imageUri: Uri? = null
+
     companion object {
-        const val TAG = "HelperFragment"
+        const val TAG = "HelperFragmentTag"
     }
 
     override fun onCreateView(
@@ -47,7 +55,7 @@ class Helper : Fragment() {
         setupView()
     }
 
-    private fun setupView(){
+    private fun setupView() {
         binding.ivItem.setOnClickListener {
             val intent = Intent()
             intent.type = "image/*"
@@ -56,40 +64,30 @@ class Helper : Fragment() {
         }
 
         binding.btnUpload.setOnClickListener {
-            if(!binding.edItemDescription.text.toString().isNullOrEmpty()&&binding.ivItem.drawable!=null) {
-                viewModel.uploadImage(imageUri)
-                viewModel.uploadText(binding.edItemDescription.text.toString())
-            }else{
-                Toast.makeText(requireContext(), getString(R.string.fail_upload_data), Toast.LENGTH_SHORT).show()
+            if (!binding.edItemDescription.text.toString()
+                    .isNullOrEmpty() && binding.ivItem.drawable != null
+            ) {
+                startLoadView()
+                runBlocking {
+
+                    viewModel.uploadImageToStorage(
+                        imageUri?.let { it1 -> BitmapUtils.compressAndSetImage(it1,requireActivity()) },
+                        binding.edItemDescription.text.toString()
+                    )
+                }
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.fail_upload_data),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
+
     private fun observeViewModel() {
-        viewModel.uploadImageResult.observeEvent(viewLifecycleOwner){result->
-            when (result.status) {
-                Status.LOADING -> {
-                    Log.d(TAG, "observeViewModel UploadImage: Load")
-                }
-                Status.LOADING_MORE -> {
-                    Log.d(TAG, "observeViewModel UploadImage: Load_more")
-                }
-                Status.SUCCESS->{
-                    Log.d(TAG, "observeViewModel UploadImage: Success")
-                    if(result.data == true){
-                        Log.d(TAG, "observeViewModel UploadImage: Success upload")
 
-                    }else{
-                        Log.d(TAG, "observeViewModel UploadImage: Fail Upload${result.exception}")
-                    }
-                }
-                else -> {
-                    Log.d(TAG, "observeViewModel UploadImage: Fail ${result.exception?.message}")
-
-                }
-            }
-
-        }
-        viewModel.uploadTextResult.observeEvent(viewLifecycleOwner){result->
+        viewModel.uploadImageToStorage.observeEvent(viewLifecycleOwner) { result ->
             when (result.status) {
                 Status.LOADING -> {
                     Log.d(TAG, "observeViewModel UploadText: Load")
@@ -97,16 +95,12 @@ class Helper : Fragment() {
                 Status.LOADING_MORE -> {
                     Log.d(TAG, "observeViewModel UploadText: Load_more")
                 }
-                Status.SUCCESS->{
-                    Log.d(TAG, "observeViewModel UploadText: Success")
-                    if(result.data == true){
-                        Log.d(TAG, "observeViewModel UploadText: Success upload")
-
-                    }else{
-                        Log.d(TAG, "observeViewModel UploadText: Fail Upload${result.exception}")
-                    }
+                Status.SUCCESS -> {
+                    stopLoadView()
+                    Log.d(TAG, "observeViewModel UploadText: Success upload")
                 }
                 else -> {
+                    stopLoadView()
                     Log.d(TAG, "observeViewModel UploadText: Fail ${result.exception?.message}")
 
                 }
@@ -115,7 +109,7 @@ class Helper : Fragment() {
         }
     }
 
-        private fun observeAuthenticationState() {
+    private fun observeAuthenticationState() {
 
         viewModel.authenticationState.observe(requireActivity(), Observer { authenticationState ->
             when (authenticationState) {
@@ -134,14 +128,22 @@ class Helper : Fragment() {
         })
     }
 
+    private fun startLoadView() {
+        binding.progressBar.visibility = View.VISIBLE
+    }
+
+    private fun stopLoadView() {
+        binding.progressBar.visibility = View.GONE
+    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         Log.d(TAG, "onActivityResult: e3r23r32${data?.data}")
 
-        if (requestCode == pic_id && data != null && data.data != null){
+        if (requestCode == pic_id && data != null && data.data != null) {
             imageUri = data.data
-            binding.ivItem.setImageURI(imageUri);
+            binding.ivItem.setImageURI(imageUri)
+
         }
     }
 

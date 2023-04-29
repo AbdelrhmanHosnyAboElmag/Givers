@@ -1,5 +1,8 @@
 package com.example.givers.ui.utils
 
+import com.example.givers.ui.Model.NeedyModel
+import kotlinx.coroutines.flow.Flow
+
 data class DataResult<out T>(val status: Status, val data: T?, val exception: Throwable?) {
     companion object {
         fun <T> success(data: T? = null): DataResult<T> {

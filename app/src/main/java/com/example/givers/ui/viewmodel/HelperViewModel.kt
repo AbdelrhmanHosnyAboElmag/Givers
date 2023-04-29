@@ -1,6 +1,5 @@
 package com.example.givers.ui.viewmodel
 
-import android.net.Uri
 import androidx.lifecycle.*
 import com.example.givers.ui.Manager.FireBaseManagerLiveData
 import com.example.givers.ui.Manager.FirebaseManager
@@ -12,48 +11,25 @@ import kotlinx.coroutines.launch
 class HelperViewModel : ViewModel() {
 
     /**
-     * UPLOAD IMAGE RESULT
+     * UPLOAD HELPER ITEM RESULT
      */
-    private val _uploadImageResult = MutableLiveData<Event<DataResult<Any>>>()
-    val uploadImageResult get() : LiveData<Event<DataResult<Any>>> = _uploadImageResult
+    private val _uploadImageToStorage = MutableLiveData<Event<DataResult<Any>>>()
+    val uploadImageToStorage get() : LiveData<Event<DataResult<Any>>> = _uploadImageToStorage
 
-    fun uploadImage(imageUri: Uri?) {
+    fun uploadImageToStorage(imageUri: ByteArray?,text:String) {
         // Avoid requesting more data while previous request is in progress
-        val status = uploadImageResult.value?.getForcedValue()?.status
+        val status = uploadImageToStorage.value?.getForcedValue()?.status
         if (status == Status.LOADING || status == Status.LOADING_MORE) return
         // Fetch data
         viewModelScope.launch {
 
-            _uploadImageResult.value = Event(DataResult.loading())
-            _uploadImageResult.value = Event(
-                DataResult.success(
-                    FirebaseManager().uploadImage(imageUri ?: Uri.EMPTY)
-                )
+            _uploadImageToStorage.value = Event(DataResult.loading())
+            _uploadImageToStorage.value = Event(
+                    FirebaseManager().uploadImageToStorage(text,imageUri)
             )
         }
     }
 
-    /**
-     * UPLOAD TEXT RESULT
-     */
-    private val _uploadTextResult = MutableLiveData<Event<DataResult<Any>>>()
-    val uploadTextResult get() : LiveData<Event<DataResult<Any>>> = _uploadTextResult
-
-    fun uploadText(text: String) {
-        // Avoid requesting more data while previous request is in progress
-        val status = uploadTextResult.value?.getForcedValue()?.status
-        if (status == Status.LOADING || status == Status.LOADING_MORE) return
-        // Fetch data
-        viewModelScope.launch {
-
-            _uploadTextResult.value = Event(DataResult.loading())
-            _uploadTextResult.value = Event(
-                DataResult.success(
-                    FirebaseManager().uploadText(text)
-                )
-            )
-        }
-    }
 
     /**
      * AUTHENTICATION STATE
