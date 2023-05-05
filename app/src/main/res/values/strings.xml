@@ -8,5 +8,9 @@
     <string name="write_description_here">Write Description Here.</string>
     <string name="upload">Upload</string>
     <string name="fail_upload_data">Check if all require data is add.</string>
+    <string name="enter_youtr_id_card">Enter youtr id card</string>
+    <string name="enter_your_location">Enter your location</string>
+    <string name="enter_phone_number">Enter phone number</string>
+    <string name="sumbit">Sumbit</string>
 
 </resources>

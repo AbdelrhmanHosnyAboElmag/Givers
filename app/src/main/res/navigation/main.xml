@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/intro"
+    app:startDestination="@id/splash">
+
+    <fragment
+        android:id="@+id/splash"
+        android:name="com.example.givers.app.ui.fragments.Splash"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splash_to_option"
+            app:destination="@id/option"
+            app:popUpTo="@id/splash"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/option"
+        android:name="com.example.givers.app.ui.fragments.Option"
+        android:label="fragment_option"
+        tools:layout="@layout/fragment_option" >
+        <action
+            android:id="@+id/action_option_to_needy"
+            app:destination="@id/needy" />
+        <action
+            android:id="@+id/action_option_to_authenticationHelper"
+            app:destination="@id/authenticationHelper" />
+    </fragment>
+    <fragment
+        android:id="@+id/needy"
+        android:name="com.example.givers.app.ui.fragments.Needy"
+        android:label="fragment_needy"
+        tools:layout="@layout/fragment_needy" >
+        <action
+            android:id="@+id/action_needy_to_needyDetails"
+            app:destination="@id/needyDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/helper"
+        android:name="com.example.givers.app.ui.fragments.Helper"
+        android:label="fragment_helper"
+        tools:layout="@layout/fragment_helper" />
+    <fragment
+        android:id="@+id/authenticationHelper"
+        android:name="com.example.givers.app.ui.fragments.AuthenticationHelper"
+        android:label="fragment_authentication_helper"
+        tools:layout="@layout/fragment_authentication_helper" >
+        <action
+            android:id="@+id/action_authenticationHelper_to_helper"
+            app:destination="@id/helper"
+            app:popUpTo="@id/option" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_authenticationHelper"
+        app:destination="@id/authenticationHelper"
+        app:popUpTo="@id/option" />
+    <fragment
+        android:id="@+id/needyDetails"
+        android:name="com.example.givers.app.ui.fragments.NeedyDetails"
+        android:label="fragment_needy_details"
+        tools:layout="@layout/fragment_needy_details" />
+</navigation>
