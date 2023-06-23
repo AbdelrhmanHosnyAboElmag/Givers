@@ -43,6 +43,7 @@ class Needy : Fragment() {
     }
 
    private fun observeViewModel(){
+
         viewModel.getImageResult.observeEvent(viewLifecycleOwner) { result ->
             when (result.status) {
                 Status.LOADING -> {
@@ -62,7 +63,7 @@ class Needy : Fragment() {
     }
 
     private fun createAdapter(donationModel: MutableList<DonationModel>) {
-        Log.d(TAG, "createAdapter: ${donationModel.get(1).id}")
+//        Log.d(TAG, "createAdapter: ${donationModel.get(1).id}")
         needyAdapter= NeedyAdapter(donationModel){
             viewModel.navigateToDetail(it)
             findNavController().navigate(R.id.action_needy_to_needyDetails)

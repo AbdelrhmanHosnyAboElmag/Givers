@@ -6,4 +6,4 @@ import kotlinx.android.parcel.Parcelize
 
 @Keep
 @Parcelize
-data class needyModel(var name:String,var location:String,var phoneNumbr:String): Parcelable
+data class needyModel(var name:String,var location:String,var phoneNumbr:String,var deviceId:String,var itemId:String = ""): Parcelable

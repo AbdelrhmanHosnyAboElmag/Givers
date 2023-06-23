@@ -23,12 +23,14 @@ class NeedyAdapter(
          */
         fun setData(donationModel: DonationModel) =
             binding.apply {
-                val context = itemView.context
-                Glide.with(context)
-                    .load(donationModel.itemImage)
-                    .circleCrop()
-                    .into(imgNeedy)
-                tvNeedy.text = donationModel.itemDescription
+                if (!donationModel.isTake) {
+                    val context = itemView.context
+                    Glide.with(context)
+                        .load(donationModel.itemImage)
+                        .circleCrop()
+                        .into(imgNeedy)
+                    tvNeedy.text = donationModel.itemDescription
+                }
             }
     }
 
