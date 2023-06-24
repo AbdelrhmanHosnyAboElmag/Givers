@@ -28,7 +28,7 @@ class Splash : Fragment() {
             }
 
             override fun onAnimationEnd(p0: Animator) {
-                findNavController().navigate(R.id.action_splash_to_option )
+                findNavController().navigate(R.id.action_splash_to_gettingStartedFragment)
 
             }
 

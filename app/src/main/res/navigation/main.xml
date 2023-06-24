@@ -11,10 +11,8 @@
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
-            android:id="@+id/action_splash_to_option"
-            app:destination="@id/option"
-            app:popUpTo="@id/splash"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_splash_to_gettingStartedFragment"
+            app:destination="@id/gettingStartedFragment" />
     </fragment>
     <fragment
         android:id="@+id/option"
@@ -61,4 +59,13 @@
         android:name="com.example.givers.app.ui.fragments.NeedyDetails"
         android:label="fragment_needy_details"
         tools:layout="@layout/fragment_needy_details" />
+    <fragment
+        android:id="@+id/gettingStartedFragment"
+        android:name="com.example.givers.app.ui.fragments.GettingStartedFragment"
+        android:label="fragment_getting_started"
+        tools:layout="@layout/fragment_getting_started" >
+        <action
+            android:id="@+id/action_gettingStartedFragment_to_option"
+            app:destination="@id/option" />
+    </fragment>
 </navigation>

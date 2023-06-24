@@ -1,31 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearFifthScreen"
+    style="@style/groupStylewhite_A700"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".app.ui.fragments.Option">
+    android:gravity="start"
+    android:orientation="vertical">
 
 
-    <Button
-        android:id="@+id/btn_needy"
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/imageHelpinghandpn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_358pxv"
+        android:scaleType="fitXY"
+        tools:ignore="ContentDescription"
+        android:src="@drawable/img_helpinghandpn" />
+
+    <LinearLayout
+        android:id="@+id/btn_donor"
+        style="@style/groupStyleteal_300cornerRadius"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/needy"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.16"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginStart="@dimen/_35pxv"
+        android:layout_marginTop="@dimen/_10pxv"
+        android:layout_marginEnd="@dimen/_33pxv"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_helper"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/txtDonor"
+            style="@style/txtInterblack30"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_51pxv"
+            android:layout_marginTop="@dimen/_8pxv"
+            android:layout_marginEnd="@dimen/_48pxv"
+            android:layout_marginBottom="@dimen/_13pxv"
+            android:ellipsize="end"
+            android:gravity="center_horizontal"
+            android:singleLine="true"
+            android:text="@{fifthScreenVM.fifthScreenModel.txtDonor}"
+            tools:text="@string/lbl_donor" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnNeedy"
+        style="@style/btnSolidRounded"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/helper"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.76"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_marginStart="@dimen/_35pxv"
+        android:layout_marginTop="@dimen/_26pxv"
+        android:layout_marginEnd="@dimen/_33pxv"
+        android:layout_marginBottom="@dimen/_20pxv"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:paddingStart="@dimen/_30pxv"
+        android:paddingTop="@dimen/_11pxv"
+        android:paddingEnd="@dimen/_30pxv"
+        android:paddingBottom="@dimen/_11pxv"
+        android:singleLine="true"
+        android:text="@string/lbl_needy"
+        android:textAllCaps="false"
+        tools:text="@string/lbl_needy" />
+</LinearLayout>

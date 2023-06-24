@@ -1,16 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="app_name">Givers</string>
+    <string name="app_name">development_s_application15</string>
+    <string name="loading">Loading…</string>
+    <string name="no_internet_connection">No internet connection!</string>
+    <string name="lbl_i">i</string>
+    <string name="msg_login_with_goog">Login with Google</string>
+    <string name="lbl_email">Email</string>
+    <string name="lbl_city">City</string>
+    <string name="lbl_upload_photo">Upload Photo</string>
+    <string name="msg_forget_password">Forget Password?</string>
+    <string name="msg_don_t_have_an_a">Don\u2019t have an account?</string>
+    <string name="lbl_r">r</string>
+    <string name="lbl_s">s </string>
+    <string name="msg_confirm_passwor">Confirm Password</string>
+    <string name="lbl_national_id">National ID </string>
+    <string name="lbl_shoes_size_40">Shoes
+size: 40</string>
+    <string name="lbl_v">v</string>
+    <string name="msg_write_descripti">Write Description.....</string>
+    <string name="lbl_country">Country</string>
+    <string name="lbl_login">Login</string>
+    <string name="lbl_needy">Recipient</string>
+    <string name="lbl_please_fill">Please Fill!</string>
+    <string name="lbl_donor">Donor</string>
+    <string name="lbl_new_password">New Password</string>
+    <string name="msg_please_wait_24">Please wait  24 hours
+          for response!</string>
+    <string name="lbl_blue_bag">Blue bag</string>
+    <string name="lbl_phone_number">Phone Number </string>
+    <string name="lbl_please_enter">Please Enter!</string>
+    <string name="lbl_create_account">Create Account</string>
+    <string name="lbl_forgot_password">Forgot Password</string>
+    <string name="lbl_givers">Givers </string>
+    <string name="lbl_login2">Login </string>
+    <string name="lbl_get_started">Get Started</string>
+    <string name="lbl_password">Password</string>
+    <string name="lbl_or">or</string>
+    <string name="lbl_location">Location</string>
+    <string name="lbl_donations">Donations </string>
+    <string name="lbl_marital_status">Marital status&#13;</string>
+    <string name="lbl_submit">Submit</string>
+    <string name="msg_write_in_detail">Write in details.....</string>
+    <string name="lbl_select">Select</string>
+    <string name="lbl_e">e</string>
+    <string name="lbl_g">G</string>
+    <string name="lbl_full_name">Full Name</string>
+    <string name="msg_choose_type_of">Choose type of donation</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="needy">Needy</string>
-    <string name="helper">Helper</string>
-    <string name="click_image_to_upload_picture">Click Image To Upload Picture</string>
-    <string name="write_description_here">Write Description Here.</string>
-    <string name="upload">Upload</string>
-    <string name="fail_upload_data">Check if all require data is add.</string>
-    <string name="enter_youtr_id_card">Enter youtr id card</string>
-    <string name="enter_your_location">Enter your location</string>
-    <string name="enter_phone_number">Enter phone number</string>
-    <string name="sumbit">Sumbit</string>
-
 </resources>

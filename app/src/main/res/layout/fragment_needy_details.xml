@@ -1,57 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearSeventhScreen"
+    style="@style/groupStylewhite_A700"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".app.ui.fragments.NeedyDetails">
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
 
-
-    <EditText
-        android:id="@+id/et_Id"
+    <TextView
+        android:id="@+id/txtPleaseEnter"
+        style="@style/txtInterbold24_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/enter_youtr_id_card"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19999999" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="@dimen/_14pxv"
+        android:layout_marginTop="@dimen/_84pxv"
+        android:layout_marginEnd="@dimen/_14pxv"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@{seventhScreenVM.seventhScreenModel.txtPleaseEnter}"
+        tools:text="@string/lbl_please_enter" />
 
-    <EditText
-        android:id="@+id/et_location"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/txtLanguage"
+        style="@style/txtSolidRounded_1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/enter_your_location"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Id" />
+        android:layout_marginStart="@dimen/_7pxv"
+        android:layout_marginTop="@dimen/_27pxv"
+        android:layout_marginEnd="@dimen/_7pxv"
+        android:ellipsize="end"
+        android:gravity="center_horizontal"
+        android:paddingStart="@dimen/_17pxv"
+        android:paddingTop="@dimen/_12pxv"
+        android:paddingBottom="@dimen/_9pxv"
+        android:singleLine="true"
+        android:text="@{seventhScreenVM.seventhScreenModel.txtLanguage}"
+        tools:text="@string/lbl_national_id" />
 
-    <EditText
-        android:id="@+id/et_phone_number"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/txtGroupFortySeven"
+        style="@style/txtSolidRounded_1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:text="@string/enter_phone_number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_location" />
+        android:layout_marginStart="@dimen/_9pxv"
+        android:layout_marginTop="@dimen/_32pxv"
+        android:layout_marginEnd="@dimen/_7pxv"
+        android:ellipsize="end"
+        android:gravity="center_horizontal"
+        android:paddingStart="@dimen/_15pxv"
+        android:paddingTop="@dimen/_11pxv"
+        android:paddingBottom="@dimen/_13pxv"
+        android:singleLine="true"
+        android:text="@{seventhScreenVM.seventhScreenModel.txtGroupFortySeven}"
+        tools:text="@string/lbl_marital_status" />
 
-    <Button
-        android:id="@+id/btn_submit"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/txtLanguageOne"
+        style="@style/txtSolidRounded_1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/sumbit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.83"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_phone_number" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_marginStart="@dimen/_14pxv"
+        android:layout_marginTop="@dimen/_36pxv"
+        android:layout_marginEnd="@dimen/_7pxv"
+        android:ellipsize="end"
+        android:gravity="center_horizontal"
+        android:paddingStart="@dimen/_15pxv"
+        android:paddingTop="@dimen/_10pxv"
+        android:paddingBottom="@dimen/_14pxv"
+        android:singleLine="true"
+        android:text="@{seventhScreenVM.seventhScreenModel.txtLanguageOne}"
+        tools:text="@string/lbl_phone_number" />
+
+    <TextView
+        android:id="@+id/txtGroupFortyFive"
+        style="@style/txtSolidRounded_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_14pxv"
+        android:layout_marginTop="@dimen/_30pxv"
+        android:layout_marginEnd="@dimen/_7pxv"
+        android:ellipsize="end"
+        android:gravity="center_horizontal"
+        android:paddingStart="@dimen/_15pxv"
+        android:paddingTop="@dimen/_11pxv"
+        android:paddingBottom="@dimen/_13pxv"
+        android:singleLine="true"
+        android:text="@{seventhScreenVM.seventhScreenModel.txtGroupFortyFive}"
+        tools:text="@string/lbl_location" />
+
+    <FrameLayout
+        android:id="@+id/frameStacklogin"
+        android:layout_width="@dimen/_143pxv"
+        android:layout_height="@dimen/_61pxv"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="@dimen/_14pxv"
+        android:layout_marginTop="@dimen/_41pxv"
+        android:layout_marginEnd="@dimen/_14pxv"
+        android:layout_marginBottom="@dimen/_20pxv">
+
+        <TextView
+            android:id="@+id/txtLogin"
+            style="@style/txtInterbold24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="@dimen/_29pxv"
+            android:layout_marginTop="@dimen/_4pxv"
+            android:layout_marginEnd="@dimen/_29pxv"
+            android:layout_marginBottom="@dimen/_10pxv"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{seventhScreenVM.seventhScreenModel.txtLogin}"
+            tools:text="@string/lbl_login" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSubmit"
+            style="@style/btnSolidRounded_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/lbl_submit"
+            android:textAllCaps="false"
+            tools:text="@string/lbl_submit" />
+    </FrameLayout>
+</LinearLayout>
