@@ -1,5 +1,6 @@
 package com.example.givers.app.ui.fragments
 
+import android.app.Dialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -7,6 +8,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -15,11 +19,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.givers.R
 import com.example.givers.app.Model.DonationModel
-import com.example.givers.databinding.FragmentHelperBinding
 import com.example.givers.app.exts.observeEvent
 import com.example.givers.app.utils.BitmapUtils
 import com.example.givers.app.utils.Status
 import com.example.givers.app.viewmodel.HelperViewModel
+import com.example.givers.databinding.FragmentHelperBinding
 import com.firebase.ui.auth.AuthUI
 import kotlinx.coroutines.runBlocking
 import java.util.*
@@ -30,6 +34,7 @@ class Helper : Fragment() {
     private val viewModel by activityViewModels<HelperViewModel>()
     private val pic_id = 123
     private var imageUri: Uri? = null
+    private var dialogChoice = ""
 
     companion object {
         const val TAG = "HelperFragmentTag"
@@ -59,21 +64,21 @@ class Helper : Fragment() {
             startActivityForResult(intent, pic_id)
         }
 
-        binding.btnUpload.setOnClickListener {
-            if (!binding.edItemDescription.text.toString()
+        binding.btnSubmit.setOnClickListener {
+            if (!binding.txtWriteDescripti.text.toString()
                     .isNullOrEmpty() && binding.ivItem.drawable != null
             ) {
                 startLoadView()
                 runBlocking {
                     viewModel.uploadImageToStorage(
                         donationModel = DonationModel(
-                            binding.edItemDescription.text.toString(),
+                            binding.txtWriteDescripti.text.toString(),
                             imageUri?.let { it1 ->
                                 BitmapUtils.compressAndSetImage(
                                     it1,
                                     requireActivity()
                                 )
-                            }.toString(),"TEST TYPE"
+                            }.toString(),dialogChoice
                         ),       imageUri?.let { it1 ->
                             BitmapUtils.compressAndSetImage(
                                 it1,
@@ -86,10 +91,13 @@ class Helper : Fragment() {
             } else {
                 Toast.makeText(
                     requireContext(),
-                    getString(R.string.fail_upload_data),
+                    "Fail upload data",
                     Toast.LENGTH_SHORT
                 ).show()
             }
+        }
+        binding.linearRowchoosetypeof.setOnClickListener {
+            showDialog()
         }
     }
 
@@ -153,6 +161,28 @@ class Helper : Fragment() {
             binding.ivItem.setImageURI(imageUri)
 
         }
+    }
+
+    private fun showDialog() {
+        // Create a new instance of the dialog
+        val dialog = Dialog(requireContext())
+        dialog.setContentView(R.layout.dialog_donation_type)
+
+        // Set the dialog title and message
+        val radioGroup : RadioGroup = dialog.findViewById(R.id.radioGroup)
+        radioGroup.setOnCheckedChangeListener { group, checkedId -> // called when a radio button is selected or deselected
+            val radioButton = dialog.findViewById<RadioButton>(checkedId)
+            dialogChoice = radioButton.text.toString()
+        }
+
+        // Set the button click listener
+        val button: Button = dialog.findViewById(R.id.button2)
+        button.setOnClickListener(View.OnClickListener { // Close the dialog
+            dialog.dismiss()
+        })
+
+        // Show the dialog
+        dialog.show()
     }
 
 }

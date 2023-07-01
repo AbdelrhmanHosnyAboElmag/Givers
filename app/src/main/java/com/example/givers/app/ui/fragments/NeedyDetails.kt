@@ -85,9 +85,9 @@ class NeedyDetails : Fragment() {
                         Toast.makeText(requireContext(), "success", Toast.LENGTH_SHORT).show()
                         viewModel.getNeedyRequestResult(
                             needyModel(
-                                binding.etId.text.toString(),
-                                binding.etLocation.text.toString(),
-                                binding.etPhoneNumber.text.toString(),
+                                binding.txtLanguage.text.toString(),
+                                binding.txtGroupFortyFive.text.toString(),
+                                binding.txtLanguageOne.text.toString(),
                                 deviceID(),
                                 donationItem.id
                             )
@@ -113,7 +113,7 @@ class NeedyDetails : Fragment() {
     private fun onResgisterClick() {
         binding.btnSubmit.setOnClickListener {
             Log.d("TETS111", "onResgisterClick:1 ")
-            viewModel.checkIfExistsTaskSuspend(deviceID())
+            viewModel.checkIfExistsTaskSuspend(binding.txtLanguage.text.toString())
         }
     }
 

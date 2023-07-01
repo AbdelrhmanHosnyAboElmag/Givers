@@ -12,7 +12,7 @@
     <ImageView
         android:id="@+id/imageHelpinghandpn"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_358pxv"
+        android:layout_height="@dimen/_300pxv"
         android:scaleType="fitXY"
         tools:ignore="ContentDescription"
         android:src="@drawable/img_helpinghandpn" />
@@ -23,7 +23,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_35pxv"
-        android:layout_marginTop="@dimen/_10pxv"
         android:layout_marginEnd="@dimen/_33pxv"
         android:gravity="center_horizontal"
         android:orientation="vertical">
@@ -40,8 +39,7 @@
             android:ellipsize="end"
             android:gravity="center_horizontal"
             android:singleLine="true"
-            android:text="@{fifthScreenVM.fifthScreenModel.txtDonor}"
-            tools:text="@string/lbl_donor" />
+            android:text="@string/lbl_donor" />
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -60,7 +58,6 @@
         android:paddingEnd="@dimen/_30pxv"
         android:paddingBottom="@dimen/_11pxv"
         android:singleLine="true"
-        android:text="@string/lbl_needy"
         android:textAllCaps="false"
-        tools:text="@string/lbl_needy" />
+        android:text="@string/lbl_needy" />
 </LinearLayout>

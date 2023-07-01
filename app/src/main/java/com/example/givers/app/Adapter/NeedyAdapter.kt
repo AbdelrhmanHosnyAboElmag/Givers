@@ -50,7 +50,7 @@ class NeedyAdapter(
         val itemHolder = holder as NeedyViewHolder
 
         holder.setData(list[position])
-        holder.itemView.setOnClickListener {
+        holder.binding.btnSelect.setOnClickListener {
             //setDistance(dis)
             onClickListener(list[position])
         }

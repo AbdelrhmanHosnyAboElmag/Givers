@@ -8,53 +8,30 @@
 
     <ImageView
         android:id="@+id/iv_item"
-        android:src="@drawable/ic_launcher_background"
         android:layout_width="200dp"
         android:layout_height="200dp"
+        android:src="@drawable/img_uploadfiles1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39"
-         />
+        app:layout_constraintTop_toBottomOf="@+id/btn_logout"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/click_image_to_upload_picture"
+        android:text="@string/lbl_upload_photo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_item" />
 
-    <EditText
-        android:id="@+id/ed_item_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/write_description_here"
-        android:inputType="textMultiLine"
-        android:maxLines="5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.07999998" />
 
-    <Button
-        android:id="@+id/btn_upload"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="@string/upload"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_item_description" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_logout"
+        style="@style/groupStyleteal_300cornerRadius"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -75,4 +52,95 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.45" />
+
+    <LinearLayout
+        android:id="@+id/linearRowchoosetypeof"
+        style="@style/groupStyleteal_300cornerRadius"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+        <TextView
+            android:id="@+id/txtChoosetypeof"
+            style="@style/txtInterbold16_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15pxv"
+            android:layout_marginTop="@dimen/_13pxv"
+            android:layout_marginBottom="@dimen/_11pxv"
+            android:layout_weight="0.85"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@string/msg_choose_type_of" />
+
+        <ImageView
+            android:id="@+id/image5175173378arr"
+            android:layout_width="@dimen/_35pxv"
+            android:layout_height="@dimen/_27pxv"
+            android:layout_marginStart="@dimen/_48pxv"
+            android:layout_marginTop="@dimen/_9pxv"
+            android:layout_marginEnd="@dimen/_6pxv"
+            android:layout_marginBottom="@dimen/_8pxv"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_5175173378arr"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/img_5175173378arr" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearColumnwritedescripti"
+        style="@style/groupStyleteal_300cornerRadius"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearRowchoosetypeof">
+
+        <EditText
+            android:id="@+id/txtWriteDescripti"
+            style="@style/txtInterbold14"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_11pxv"
+            android:layout_marginTop="@dimen/_6pxv"
+            android:layout_marginEnd="@dimen/_8pxv"
+            android:layout_marginBottom="@dimen/_70pxv"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:hint="@string/msg_write_descripti"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSubmit"
+        style="@style/btnSolidRounded_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:paddingStart="@dimen/_29pxv"
+        android:paddingTop="@dimen/_5pxv"
+        android:paddingEnd="@dimen/_22pxv"
+        android:paddingBottom="@dimen/_5pxv"
+        android:singleLine="true"
+        android:text="@string/lbl_submit"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearColumnwritedescripti"
+        tools:text="@string/lbl_submit" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,7 +28,7 @@ class Option : Fragment() {
         binding.btnNeedy.setOnClickListener {
             findNavController().navigate(R.id.action_option_to_needy)
         }
-        binding.btnHelper.setOnClickListener {
+        binding.btnDonor.setOnClickListener {
             findNavController().navigate(R.id.action_option_to_authenticationHelper)
         }
     }

@@ -19,76 +19,54 @@
         android:layout_marginEnd="@dimen/_14pxv"
         android:ellipsize="end"
         android:singleLine="true"
-        android:text="@{seventhScreenVM.seventhScreenModel.txtPleaseEnter}"
-        tools:text="@string/lbl_please_enter" />
+        android:text="@string/lbl_please_enter" />
 
-    <TextView
+    <EditText
         android:id="@+id/txtLanguage"
         style="@style/txtSolidRounded_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_7pxv"
+        android:layout_marginStart="@dimen/_17pxv"
         android:layout_marginTop="@dimen/_27pxv"
-        android:layout_marginEnd="@dimen/_7pxv"
+        android:layout_marginEnd="@dimen/_17pxv"
         android:ellipsize="end"
         android:gravity="center_horizontal"
-        android:paddingStart="@dimen/_17pxv"
         android:paddingTop="@dimen/_12pxv"
         android:paddingBottom="@dimen/_9pxv"
         android:singleLine="true"
-        android:text="@{seventhScreenVM.seventhScreenModel.txtLanguage}"
-        tools:text="@string/lbl_national_id" />
+        android:text="@string/lbl_national_id" />
 
-    <TextView
-        android:id="@+id/txtGroupFortySeven"
-        style="@style/txtSolidRounded_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_9pxv"
-        android:layout_marginTop="@dimen/_32pxv"
-        android:layout_marginEnd="@dimen/_7pxv"
-        android:ellipsize="end"
-        android:gravity="center_horizontal"
-        android:paddingStart="@dimen/_15pxv"
-        android:paddingTop="@dimen/_11pxv"
-        android:paddingBottom="@dimen/_13pxv"
-        android:singleLine="true"
-        android:text="@{seventhScreenVM.seventhScreenModel.txtGroupFortySeven}"
-        tools:text="@string/lbl_marital_status" />
-
-    <TextView
+    <EditText
         android:id="@+id/txtLanguageOne"
         style="@style/txtSolidRounded_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_14pxv"
-        android:layout_marginTop="@dimen/_36pxv"
-        android:layout_marginEnd="@dimen/_7pxv"
+        android:layout_marginStart="@dimen/_17pxv"
+        android:layout_marginTop="@dimen/_27pxv"
+        android:layout_marginEnd="@dimen/_17pxv"
         android:ellipsize="end"
         android:gravity="center_horizontal"
-        android:paddingStart="@dimen/_15pxv"
+        android:paddingStart="@dimen/_5pxv"
         android:paddingTop="@dimen/_10pxv"
         android:paddingBottom="@dimen/_14pxv"
         android:singleLine="true"
-        android:text="@{seventhScreenVM.seventhScreenModel.txtLanguageOne}"
-        tools:text="@string/lbl_phone_number" />
+        android:text="@string/lbl_phone_number" />
 
-    <TextView
+    <EditText
         android:id="@+id/txtGroupFortyFive"
         style="@style/txtSolidRounded_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_14pxv"
+        android:layout_marginStart="@dimen/_17pxv"
         android:layout_marginTop="@dimen/_30pxv"
-        android:layout_marginEnd="@dimen/_7pxv"
+        android:layout_marginEnd="@dimen/_17pxv"
         android:ellipsize="end"
         android:gravity="center_horizontal"
         android:paddingStart="@dimen/_15pxv"
         android:paddingTop="@dimen/_11pxv"
         android:paddingBottom="@dimen/_13pxv"
         android:singleLine="true"
-        android:text="@{seventhScreenVM.seventhScreenModel.txtGroupFortyFive}"
-        tools:text="@string/lbl_location" />
+        android:text="@string/lbl_location" />
 
     <FrameLayout
         android:id="@+id/frameStacklogin"
@@ -124,8 +102,7 @@
             android:ellipsize="end"
             android:gravity="center"
             android:singleLine="true"
-            android:text="@string/lbl_submit"
             android:textAllCaps="false"
-            tools:text="@string/lbl_submit" />
+            android:text="@string/lbl_submit" />
     </FrameLayout>
 </LinearLayout>

@@ -76,7 +76,7 @@ class NeedyViewModel:ViewModel() {
     private val _checkIfExistsTaskSuspend = MutableLiveData<Event<DataResult<List<DocumentSnapshot>>>>()
     val checkIfExistsTaskSuspend get() : LiveData<Event<DataResult<List<DocumentSnapshot>>>> = _checkIfExistsTaskSuspend
 
-    fun checkIfExistsTaskSuspend(deviceId: String) {
+    fun checkIfExistsTaskSuspend(nationalID: String) {
         Log.d("TETS111", "onResgisterClick:1.1")
         // Avoid requesting more data while previous request is in progress
         val status = checkIfExistsTaskSuspend.value?.getForcedValue()?.status
@@ -84,7 +84,7 @@ class NeedyViewModel:ViewModel() {
         // Fetch data
         viewModelScope.launch {
             _checkIfExistsTaskSuspend.value = Event(DataResult.loading())
-            firebaseRepo(FirebaseManager()).checkIfExistsTaskSuspend(deviceId).data?.collect{
+            firebaseRepo(FirebaseManager()).checkIfExistsTaskSuspend(nationalID).data?.collect{
                 _checkIfExistsTaskSuspend.value = Event(
                     DataResult.success(it)
                 )

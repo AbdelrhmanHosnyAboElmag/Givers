@@ -90,7 +90,7 @@ class FirebaseManager {
                         hashMapOf(
                             "phoneNumber" to needymodel.phoneNumbr,
                             "location" to needymodel.location,
-                            "name" to needymodel.name,
+                            "national_id" to needymodel.nationalID,
                             "device_id" to needymodel.deviceId,
                             "item_id" to needymodel.itemId
                         )
@@ -131,11 +131,11 @@ class FirebaseManager {
         awaitClose { lister }
     }
 
-    suspend fun checkIfExistsTaskSuspend(deviceId: String) =
+    suspend fun checkIfExistsTaskSuspend(nationalID: String) =
         callbackFlow<List<DocumentSnapshot>> {
 
             val query = FirebaseFirestore.getInstance().collection(Constants.needyPeople)
-                .whereEqualTo("device_id", deviceId)
+                .whereEqualTo("national_id", nationalID)
             val queryTask = query.get()
             val lister = queryTask.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
