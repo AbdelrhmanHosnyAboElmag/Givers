@@ -26,10 +26,9 @@ import com.example.givers.app.viewmodel.HelperViewModel
 import com.example.givers.databinding.FragmentHelperBinding
 import com.firebase.ui.auth.AuthUI
 import kotlinx.coroutines.runBlocking
-import java.util.*
 
 
-class Helper : Fragment() {
+class HelperFragment : Fragment() {
     private lateinit var binding: FragmentHelperBinding
     private val viewModel by activityViewModels<HelperViewModel>()
     private val pic_id = 123
@@ -173,6 +172,7 @@ class Helper : Fragment() {
         radioGroup.setOnCheckedChangeListener { group, checkedId -> // called when a radio button is selected or deselected
             val radioButton = dialog.findViewById<RadioButton>(checkedId)
             dialogChoice = radioButton.text.toString()
+            binding.txtChoosetypeof.text = radioButton.text.toString()
         }
 
         // Set the button click listener

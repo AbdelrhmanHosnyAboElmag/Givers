@@ -10,7 +10,7 @@ import com.example.givers.R
 import com.example.givers.databinding.FragmentOptionBinding
 
 
-class Option : Fragment() {
+class OptionFragment : Fragment() {
 
     private lateinit var binding: FragmentOptionBinding
 

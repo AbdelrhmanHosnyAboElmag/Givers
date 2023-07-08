@@ -125,17 +125,45 @@ class FirebaseManager {
 
     suspend fun getAllDataNeedy() = callbackFlow<MutableList<DonationModel>> {
         var lister =
-            Firebase.firestore.collection(Constants.donationitems).get().addOnSuccessListener {
+            Firebase.firestore.collection(Constants.donationitems).whereEqualTo("isTake",false).get().addOnSuccessListener {
                 trySend(it.toObjects(DonationModel::class.java))
             }
         awaitClose { lister }
     }
 
     suspend fun checkIfExistsTaskSuspend(nationalID: String) =
-        callbackFlow<List<DocumentSnapshot>> {
+        callbackFlow<Pair<List<DocumentSnapshot>,String>> {
 
             val query = FirebaseFirestore.getInstance().collection(Constants.needyPeople)
                 .whereEqualTo("national_id", nationalID)
+            val queryTask = query.get()
+            val lister = queryTask.addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val querySnapshot = task.result
+                    val itemIds = mutableListOf<String>()
+                    for (document in querySnapshot.documents) {
+                        val itemId = document.getString("item_id")
+                        if (itemId != null) {
+                            itemIds.add(itemId)
+                        }
+                    }
+                    if (!querySnapshot.isEmpty) {
+                        Log.d("TEST111", "checkIfExistsTaskSuspend:1")
+                        trySend(Pair(querySnapshot.documents,itemIds[0]))
+                    } else {
+                        Log.d("TEST111", "checkIfExistsTaskSuspend:2")
+                        trySend(Pair(Collections.emptyList(),""))
+                    }
+                }
+            }
+            awaitClose { lister }
+        }
+    suspend fun checkIfExistsTaskSuspendTwo(itemId: String) =
+        callbackFlow<List<DocumentSnapshot>> {
+
+            val query = FirebaseFirestore.getInstance().collection(Constants.donationitems)
+                .whereEqualTo("id", itemId)
+                .whereEqualTo("isTake",false)
             val queryTask = query.get()
             val lister = queryTask.addOnCompleteListener { task ->
                 if (task.isSuccessful) {

@@ -7,7 +7,13 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical">
-
+    <include
+        android:id="@+id/layout_dialog_hold"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        layout="@layout/dialog_hold_request"
+        />
     <TextView
         android:id="@+id/txtPleaseEnter"
         style="@style/txtInterbold24_1"
@@ -34,7 +40,8 @@
         android:paddingTop="@dimen/_12pxv"
         android:paddingBottom="@dimen/_9pxv"
         android:singleLine="true"
-        android:text="@string/lbl_national_id" />
+        android:textColorHint="@color/white_A700"
+        android:hint="@string/lbl_national_id" />
 
     <EditText
         android:id="@+id/txtLanguageOne"
@@ -46,11 +53,12 @@
         android:layout_marginEnd="@dimen/_17pxv"
         android:ellipsize="end"
         android:gravity="center_horizontal"
+        android:textColorHint="@color/white_A700"
         android:paddingStart="@dimen/_5pxv"
         android:paddingTop="@dimen/_10pxv"
         android:paddingBottom="@dimen/_14pxv"
         android:singleLine="true"
-        android:text="@string/lbl_phone_number" />
+        android:hint="@string/lbl_phone_number" />
 
     <EditText
         android:id="@+id/txtGroupFortyFive"
@@ -62,11 +70,12 @@
         android:layout_marginEnd="@dimen/_17pxv"
         android:ellipsize="end"
         android:gravity="center_horizontal"
+        android:textColorHint="@color/white_A700"
         android:paddingStart="@dimen/_15pxv"
         android:paddingTop="@dimen/_11pxv"
         android:paddingBottom="@dimen/_13pxv"
         android:singleLine="true"
-        android:text="@string/lbl_location" />
+        android:hint="@string/lbl_location" />
 
     <FrameLayout
         android:id="@+id/frameStacklogin"
@@ -105,4 +114,5 @@
             android:textAllCaps="false"
             android:text="@string/lbl_submit" />
     </FrameLayout>
+
 </LinearLayout>

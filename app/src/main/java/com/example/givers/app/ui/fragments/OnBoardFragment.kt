@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.givers.R
 
-class OnBoard : Fragment() {
+class OnBoardFragment : Fragment() {
 
 
     override fun onCreateView(

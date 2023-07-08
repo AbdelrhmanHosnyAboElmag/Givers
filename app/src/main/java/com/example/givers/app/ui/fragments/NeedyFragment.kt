@@ -16,7 +16,7 @@ import com.example.givers.app.exts.observeEvent
 import com.example.givers.app.utils.Status
 import com.example.givers.app.viewmodel.NeedyViewModel
 
-class Needy : Fragment() {
+class NeedyFragment : Fragment() {
     private lateinit var binding: FragmentNeedyBinding
     private var needyAdapter = NeedyAdapter(mutableListOf()) {}
     private val viewModel by activityViewModels<NeedyViewModel>()
@@ -34,8 +34,19 @@ class Needy : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        startShimmerNeedy()
         callApi()
+        setupView()
         observeViewModel()
+    }
+
+    fun setupView(){
+        binding.swipeRefersh.setOnRefreshListener {
+            startShimmerNeedy()
+            callApi()
+            observeViewModel()
+            binding.swipeRefersh.isRefreshing = false
+        }
     }
 
    private fun callApi(){
@@ -53,6 +64,7 @@ class Needy : Fragment() {
                     Log.d(TAG, "observeViewModel UploadText: Load_more")
                 }
                 Status.SUCCESS -> {
+                    stopShimmerNeedy()
                     result.data?.let { createAdapter(it) }
                 }
                 else -> {
@@ -69,6 +81,17 @@ class Needy : Fragment() {
             findNavController().navigate(R.id.action_needy_to_needyDetails)
         }
         binding.rvNeedy.adapter = needyAdapter
+    }
+
+    private fun startShimmerNeedy() {
+        binding.rvSkeleton.reInitView(R.layout.skeleton_items, 10)
+        binding.rvSkeleton.visibility = View.VISIBLE
+        binding.rvNeedy.visibility = View.GONE
+    }
+
+    private fun stopShimmerNeedy() {
+        binding.rvSkeleton.visibility = View.GONE
+        binding.rvNeedy.visibility = View.VISIBLE
     }
 
 

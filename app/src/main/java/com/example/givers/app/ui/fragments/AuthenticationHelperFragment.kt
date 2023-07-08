@@ -19,7 +19,7 @@ import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
 
-class AuthenticationHelper : Fragment() {
+class AuthenticationHelperFragment : Fragment() {
 
     private lateinit var binding: FragmentAuthenticationHelperBinding
     private val viewModel by activityViewModels<HelperViewModel>()

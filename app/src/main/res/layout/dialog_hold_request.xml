@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/linearEightScreen"
+        style="@style/groupStylewhite_A700"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <FrameLayout
+            android:id="@+id/frameStackduration"
+            android:layout_width="@dimen/_292pxv"
+            android:layout_height="@dimen/_145pxv"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/_13pxv"
+            android:layout_marginTop="@dimen/_165pxv"
+            android:layout_marginEnd="@dimen/_13pxv"
+            android:layout_marginBottom="@dimen/_20pxv">
+
+            <FrameLayout
+                android:id="@+id/frameStackwriteindetail"
+                android:layout_width="@dimen/_124pxv"
+                android:layout_height="@dimen/_17pxv"
+                android:layout_gravity="top|start"
+                android:layout_marginStart="@dimen/_11pxv"
+                android:layout_marginTop="@dimen/_16pxv"
+                android:layout_marginEnd="@dimen/_11pxv"
+                android:layout_marginBottom="@dimen/_16pxv">
+
+                <TextView
+                    android:id="@+id/txtWriteindetail"
+                    style="@style/txtInterbold14_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:ellipsize="end"
+                    android:gravity="top|start"
+                    android:singleLine="true"
+                    android:text="@string/msg_write_in_detail" />
+
+                <FrameLayout
+                    android:id="@+id/frameStackwriteindetailOne"
+                    android:layout_width="@dimen/_124pxv"
+                    android:layout_height="@dimen/_17pxv"
+                    android:layout_gravity="start">
+
+                    <TextView
+                        android:id="@+id/txtWriteindetailOne"
+                        style="@style/txtInterbold14_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:ellipsize="end"
+                        android:gravity="top|start"
+                        android:singleLine="true"
+                        android:text="@string/msg_write_in_detail" />
+
+                    <TextView
+                        android:id="@+id/txtWriteindetailTwo"
+                        style="@style/txtInterbold14_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:ellipsize="end"
+                        android:gravity="top|start"
+                        android:singleLine="true"
+                        android:text="@{eightScreenVM.eightScreenModel.txtWriteindetailTwo}"
+                        tools:text="@string/msg_write_in_detail" />
+                </FrameLayout>
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/linearColumnduration"
+                style="@style/groupStyleteal_300cornerRadius"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtDuration"
+                    style="@style/txtInterblack24"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_16pxv"
+                    android:layout_marginTop="@dimen/_36pxv"
+                    android:layout_marginEnd="@dimen/_16pxv"
+                    android:layout_marginBottom="@dimen/_20pxv"
+                    android:gravity="center_horizontal"
+                    android:text="@string/msg_please_wait_24" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

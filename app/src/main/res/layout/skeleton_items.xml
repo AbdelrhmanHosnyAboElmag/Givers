@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_marginTop="@dimen/_8pxv"
     app:cardCornerRadius="10dp"
+    android:layout_marginTop="@dimen/_8pxv"
     android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,9 +15,10 @@
             android:id="@+id/tv_needy"
             style="@style/txtInterbold14_1"
             android:layout_width="wrap_content"
+            android:background="#808080"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="TextView"
+            android:text="              "
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.09"
             app:layout_constraintStart_toEndOf="@+id/img_needy"
@@ -27,15 +28,16 @@
             android:id="@+id/img_needy"
             android:layout_width="@dimen/_88pxv"
             android:layout_height="@dimen/_87pxv"
+            android:background="#808080"
             android:layout_marginStart="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+             />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnSelect"
-            style="@style/btnSolidRounded_2"
+            android:background="@drawable/button_shimmer"
             android:layout_width="@dimen/_71pxv"
             android:layout_height="@dimen/_32pxv"
             android:layout_gravity="bottom|end"

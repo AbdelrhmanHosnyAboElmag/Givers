@@ -35,12 +35,25 @@ class firebaseRepo( var firebaseManager: FirebaseManager) {
         }
     }
 
-    suspend fun checkIfExistsTaskSuspend(nationalID: String):DataResult<Flow<List<DocumentSnapshot>>>  {
+    suspend fun checkIfExistsTaskSuspend(nationalID: String):DataResult<Flow<Pair<List<DocumentSnapshot>,String>>>  {
         Log.d("TETS111", "onResgisterClick:1.3")
         return try {
             Log.d("zxcfadsfae", "observeViewModel UploadText: try)}"
             )
             DataResult.success(firebaseManager.checkIfExistsTaskSuspend(nationalID))
+        }catch (e:Throwable){
+            Log.d("zxcfadsfae", "observeViewModel UploadText: catch")
+
+            DataResult.error(e)
+        }
+    }
+
+    suspend fun checkIfExistsTaskSuspendTwo(itemId: String):DataResult<Flow<List<DocumentSnapshot>>>  {
+        Log.d("TETS111", "onResgisterClick:1.3")
+        return try {
+            Log.d("zxcfadsfae", "observeViewModel UploadText: try)}"
+            )
+            DataResult.success(firebaseManager.checkIfExistsTaskSuspendTwo(itemId))
         }catch (e:Throwable){
             Log.d("zxcfadsfae", "observeViewModel UploadText: catch")
 

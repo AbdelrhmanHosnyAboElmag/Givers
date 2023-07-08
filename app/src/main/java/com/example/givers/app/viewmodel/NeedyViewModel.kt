@@ -73,8 +73,8 @@ class NeedyViewModel:ViewModel() {
     /**
      * UPLOAD NEEDY REQUEST
      */
-    private val _checkIfExistsTaskSuspend = MutableLiveData<Event<DataResult<List<DocumentSnapshot>>>>()
-    val checkIfExistsTaskSuspend get() : LiveData<Event<DataResult<List<DocumentSnapshot>>>> = _checkIfExistsTaskSuspend
+    private val _checkIfExistsTaskSuspend = MutableLiveData<Event<DataResult<Pair<List<DocumentSnapshot>, String>>>>()
+    val checkIfExistsTaskSuspend get() : LiveData<Event<DataResult<Pair<List<DocumentSnapshot>, String>>>> = _checkIfExistsTaskSuspend
 
     fun checkIfExistsTaskSuspend(nationalID: String) {
         Log.d("TETS111", "onResgisterClick:1.1")
@@ -86,6 +86,29 @@ class NeedyViewModel:ViewModel() {
             _checkIfExistsTaskSuspend.value = Event(DataResult.loading())
             firebaseRepo(FirebaseManager()).checkIfExistsTaskSuspend(nationalID).data?.collect{
                 _checkIfExistsTaskSuspend.value = Event(
+                    DataResult.success(it)
+                )
+            }
+
+        }
+    }
+
+    /**
+     * UPLOAD NEEDY REQUEST2
+     */
+    private val _checkIfExistsTaskSuspendTwo = MutableLiveData<Event<DataResult<List<DocumentSnapshot>>>>()
+    val checkIfExistsTaskSuspendTwo get() : LiveData<Event<DataResult<List<DocumentSnapshot>>>> = _checkIfExistsTaskSuspendTwo
+
+    fun checkIfExistsTaskSuspendTwo(itemId: String) {
+        Log.d("TETS111", "onResgisterClick:1.1")
+        // Avoid requesting more data while previous request is in progress
+        val status = checkIfExistsTaskSuspendTwo.value?.getForcedValue()?.status
+        if (status == Status.LOADING || status == Status.LOADING_MORE) return
+        // Fetch data
+        viewModelScope.launch {
+            _checkIfExistsTaskSuspendTwo.value = Event(DataResult.loading())
+            firebaseRepo(FirebaseManager()).checkIfExistsTaskSuspendTwo(itemId).data?.collect{
+                _checkIfExistsTaskSuspendTwo.value = Event(
                     DataResult.success(it)
                 )
             }

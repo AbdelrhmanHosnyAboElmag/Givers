@@ -7,50 +7,74 @@
 
     <fragment
         android:id="@+id/splash"
-        android:name="com.example.givers.app.ui.fragments.Splash"
+        android:name="com.example.givers.app.ui.fragments.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             android:id="@+id/action_splash_to_gettingStartedFragment"
             app:destination="@id/gettingStartedFragment" />
     </fragment>
     <fragment
         android:id="@+id/option"
-        android:name="com.example.givers.app.ui.fragments.Option"
+        android:name="com.example.givers.app.ui.fragments.OptionFragment"
         android:label="fragment_option"
         tools:layout="@layout/fragment_option" >
         <action
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             android:id="@+id/action_option_to_needy"
             app:destination="@id/needy" />
         <action
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             android:id="@+id/action_option_to_authenticationHelper"
             app:destination="@id/authenticationHelper" />
     </fragment>
     <fragment
         android:id="@+id/needy"
-        android:name="com.example.givers.app.ui.fragments.Needy"
+        android:name="com.example.givers.app.ui.fragments.NeedyFragment"
         android:label="fragment_needy"
         tools:layout="@layout/fragment_needy" >
         <action
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             android:id="@+id/action_needy_to_needyDetails"
             app:destination="@id/needyDetails" />
     </fragment>
     <fragment
         android:id="@+id/helper"
-        android:name="com.example.givers.app.ui.fragments.Helper"
+        android:name="com.example.givers.app.ui.fragments.HelperFragment"
         android:label="fragment_helper"
         tools:layout="@layout/fragment_helper" />
     <fragment
         android:id="@+id/authenticationHelper"
-        android:name="com.example.givers.app.ui.fragments.AuthenticationHelper"
+        android:name="com.example.givers.app.ui.fragments.AuthenticationHelperFragment"
         android:label="fragment_authentication_helper"
         tools:layout="@layout/fragment_authentication_helper" >
         <action
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             android:id="@+id/action_authenticationHelper_to_helper"
             app:destination="@id/helper"
             app:popUpTo="@id/option" />
     </fragment>
     <action
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"
         android:id="@+id/action_global_authenticationHelper"
         app:destination="@id/authenticationHelper"
         app:popUpTo="@id/option" />
@@ -65,6 +89,10 @@
         android:label="fragment_getting_started"
         tools:layout="@layout/fragment_getting_started" >
         <action
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             android:id="@+id/action_gettingStartedFragment_to_option"
             app:destination="@id/option" />
     </fragment>
