@@ -20,7 +20,7 @@
             android:id="@+id/radioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Clothes" />
+            android:text="Clothes And Bags" />
 
         <RadioButton
             android:id="@+id/radioButton2"

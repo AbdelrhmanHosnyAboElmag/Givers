@@ -3,6 +3,7 @@ package com.example.givers.app.Adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
+import com.example.givers.R
 import com.example.givers.databinding.NeedyItemsBinding
 import com.example.givers.app.Model.DonationModel
 import com.example.givers.app.exts.BaseItemAdapter
@@ -28,6 +29,7 @@ class NeedyAdapter(
                     Glide.with(context)
                         .load(donationModel.itemImage)
                         .circleCrop()
+                        .placeholder(R.drawable.img_helpinghandpn)
                         .into(imgNeedy)
                     tvNeedy.text = donationModel.itemDescription
                 }

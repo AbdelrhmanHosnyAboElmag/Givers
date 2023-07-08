@@ -112,6 +112,7 @@ class HelperFragment : Fragment() {
                 }
                 Status.SUCCESS -> {
                     stopLoadView()
+                    Toast.makeText(requireContext(), "your donation has been upload,Thanks ", Toast.LENGTH_LONG).show()
                     Log.d(TAG, "observeViewModel UploadText: Success upload")
                 }
                 else -> {
